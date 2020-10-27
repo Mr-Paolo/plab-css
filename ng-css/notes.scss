@@ -1,0 +1,31 @@
+$el : "post";
+.#{$el} { 
+    background: blue;
+    & .#{$el}__title {
+        background: red;
+    }
+}
+
+
+@mixin fight-with($monster) {
+    @if $monster == mechagodzilla {
+      .post__title{ &:after { @content } }
+    }
+    @else if $monster == spacegodzilla {
+      @content; 
+    }
+  }
+  
+  .post--mechagodzilla {
+    @include fight-with(mechagodzilla) { content: 'fight with lightning' }
+  }
+  .post--spacegodzilla {
+    @include fight-with(spacegodzilla) { content: 'fight with Armageddon'; .post_title:after{ content: ":)"} }
+  }
+
+
+$icons: smile, poop, godzilla;
+
+@each $icon in $icons {
+  .icon-#{$icon} { background-image: url('/icons/#{$icon}.png') }   
+}
