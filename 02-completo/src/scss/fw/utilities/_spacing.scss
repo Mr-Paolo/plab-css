@@ -1,0 +1,136 @@
+
+// space
+
+
+	@for $space-index from 0 to 30 {
+
+		$space: $space-index * 0.5 * 1rem;
+
+
+		// padding
+
+		.p-#{$space-index} {
+			padding: $space !important;
+		}
+
+		.pt-#{$space-index}, .py-#{$space-index}{
+			padding-top: $space !important;
+		}
+
+		.pb-#{$space-index}, .py-#{$space-index}{
+			padding-bottom: $space !important;
+		}
+
+		.pr-#{$space-index}, .px-#{$space-index}{
+			padding-right: $space !important;
+		}
+
+		.pl-#{$space-index}, .px-#{$space-index}{
+			padding-left: $space !important;
+		}
+
+		// margin
+
+		.m-#{$space-index} {
+			margin: $space !important;
+		}
+
+		.mt-#{$space-index}, .my-#{$space-index}{
+			margin-top: $space !important;
+		}
+
+		.mb-#{$space-index}, .my-#{$space-index}{
+			margin-bottom: $space !important;
+		}
+
+		.mr-#{$space-index}, .mx-#{$space-index}{
+			margin-right: $space !important;
+		}
+
+		.ml-#{$space-index}, .mx-#{$space-index}{
+			margin-left: $space !important;
+		}
+		
+	}
+
+	.m-auto {
+		margin: auto !important;
+	}
+
+	.mt-auto, .my-auto{
+		margin-top: auto !important;
+	}
+
+	.mb-auto, .my-auto{
+		margin-bottom: auto !important;
+	}
+
+	.mr-auto, .mx-auto{
+		margin-right: auto !important;
+	}
+
+	.ml-auto, .mx-auto{
+		margin-left: auto !important;
+	}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    	@for $space-index from 0 to 30 {
+
+		$space: $space-index * 0.5 * 1rem;
+
+
+	// padding
+
+		.p#{$infix}-#{$space-index} {
+			padding: $space !important;
+		}
+
+		.pt#{$infix}-#{$space-index}, .py#{$infix}-#{$space-index}{
+			padding-top: $space !important;
+		}
+
+		.pb#{$infix}-#{$space-index}, .py#{$infix}-#{$space-index}{
+			padding-bottom: $space !important;
+		}
+
+		.pr#{$infix}-#{$space-index}, .px#{$infix}-#{$space-index}{
+			padding-right: $space !important;
+		}
+
+		.pl#{$infix}-#{$space-index}, .px#{$infix}-#{$space-index}{
+			padding-left: $space !important;
+		}
+
+	// margin
+
+		.m#{$infix}-#{$space-index} {
+			margin: $space !important;
+		}
+
+		.mt#{$infix}-#{$space-index}, .my#{$infix}-#{$space-index}{
+			margin-top: $space !important;
+		}
+
+		.mb#{$infix}-#{$space-index}, .my#{$infix}-#{$space-index}{
+			margin-bottom: $space !important;
+		}
+
+		.mr#{$infix}-#{$space-index}, .mx#{$infix}-#{$space-index}{
+			margin-right: $space !important;
+		}
+
+		.ml#{$infix}-#{$space-index}, .mx#{$infix}-#{$space-index}{
+			margin-left: $space !important;
+		}
+		
+	}
+  }
+}
+
+
+
+
+

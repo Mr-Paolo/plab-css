@@ -1,0 +1,45 @@
+	
+
+@import "reset";
+@import "mixins/breakpoints";
+@import "mixins/mixins-pinta";
+@import "variables/system-variables";
+
+@import "variables/core/global";
+@import "variables/core/color-variables";
+ 
+@import "./utilities/spacing";
+@import "./utilities/backgrounds";
+@import "./utilities/text";
+@import "./utilities/display-align";
+
+
+@import "grid-system";
+@import "flexbox";
+@import "buttons";
+@import "typography";
+@import "form";
+@import "images";
+
+
+
+// common
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+
+.img-fluid{
+	max-width: 100%
+}
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+
+:root {
+
+    --btn-fontbase: 			0.875rem;
+    --btn-padding-x: 			0.75em;
+    --btn-padding-y: 			0.5em;
+    --btn-radius: 				30px;
+    --btn-margin: 				0 0 1rem;
+    --btn-radius: 	            .2rem;
+
+
+    // @for $i from 1 to 6 {
+    // 	$incr: $i + 1;
+    // 	--heading-#{$i}: calc(var(--heading-#{$incr}) * 1.125)
+    // }
+
+    --btn-font-size-sm: 		0.75rem;
+    --btn-font-size-lg: 		1.125rem;
+}

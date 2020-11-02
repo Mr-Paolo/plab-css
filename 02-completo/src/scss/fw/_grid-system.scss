@@ -1,0 +1,256 @@
+
+
+	@import "./variables/core/grid-system";
+
+
+	@mixin breakpoint($breakpoint, $logic: false) {
+		@media (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+			@content;
+		}
+	}
+
+
+
+// classes used to center content on x-axis and set content max width
+
+
+	.container {
+
+		width: 100%;
+		padding-right: calc(var(--grid-gutter) / 2) ;
+		padding-left: calc(var(--grid-gutter) / 2 );
+		margin-left: auto;
+		margin-right: auto;
+
+
+		@each $breakpoint,$container-max-width in $grid-breakpoints {
+			@include media-breakpoint-up($breakpoint, $breakpoints) {
+				max-width: $container-max-width;
+		    }
+		}
+	}
+
+	.container-fluid {
+		width: 100%;
+		padding: var(--grid-gutter);
+	}
+
+
+
+// Grid system
+
+
+ 
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+
+		> * {
+			flex-basis: 100%;
+		}
+	}
+
+	.row {
+		margin-left: calc( var(--grid-gutter) / 2 * -1);
+		margin-right: calc( var(--grid-gutter) / 2 * -1);
+		> * { 
+			padding-left: calc( var(--grid-gutter) / 2);
+			padding-right: calc( var(--grid-gutter) / 2);
+		}
+	}
+
+	.no-gutter {
+		margin: 0;
+		div[class*="col"]{
+			padding: 0;
+		}
+	}
+
+	//function used to round width to a number with 2 decimal places - used for IE fallback
+	
+	@function round-width ($i) {
+		$width : (100% * $i * 100 / $grid-columns) / 100;
+		@return $width;
+	}
+
+	@mixin autoSizedColumn {
+		flex-grow: 1;
+		flex-basis: 0;
+		max-width: 100%;
+	}
+
+
+
+// column
+
+
+	.col { 
+		@include autoSizedColumn;
+	}
+
+
+	@for $i from 1 through $grid-columns {
+		.col-#{$i} {
+			flex-basis: calc( #{round-width($i)} );
+			max-width: calc( #{round-width($i)} ); 
+		}
+
+		.offset-#{$i}{
+			margin-left: calc( #{round-width($i)} ) ;
+		}
+	}
+
+
+
+	// xs column
+
+		@include breakpoint(xs) {
+			
+			// auto-sized column
+			.col\-xs { 
+				@include autoSizedColumn;
+			}
+
+		  	@for $i from 1 through $grid-columns {
+				.col-xs-#{$i} {
+					flex-basis: calc( #{round-width($i)} );
+					max-width: calc( #{round-width($i)} ); 
+				}
+
+				.offset-xs-#{$i}{
+					margin-left: calc( #{round-width($i)} ) ;
+				}
+			}
+		}
+		
+
+
+	// sm column
+
+		@include breakpoint(sm) {
+			
+			// auto-sized column
+			.col\-sm { 
+				@include autoSizedColumn;
+			}
+
+			@for $i from 1 through $grid-columns {
+				.col-sm-#{$i}  {
+					flex-basis: calc( #{round-width($i)} );
+					max-width: calc( #{round-width($i)} ); 
+				}
+				.offset-sm-#{$i}{
+					margin-left: calc( #{round-width($i)} ) ;
+				}
+			}
+		}
+		
+
+
+	// md column
+
+		@include breakpoint(md) {
+			
+			// auto-sized column
+			.col\-md { 
+				@include autoSizedColumn;
+			}
+
+			@for $i from 1 through $grid-columns {
+				.col-md-#{$i} {
+					flex-basis: calc( #{round-width($i)} );
+					max-width: calc( #{round-width($i)} ); 
+				}
+				.offset-md-#{$i}{
+					margin-left: calc( #{round-width($i)} ) ;
+				}
+			}
+		}
+
+
+
+	// lg column
+
+		@include breakpoint(lg) {
+			
+			// auto-sized column
+			.col\-lg { 
+				@include autoSizedColumn;
+			}
+
+			@for $i from 1 through $grid-columns {
+				.col-lg-#{$i} {
+					flex-basis: calc( #{round-width($i)});
+					max-width: calc( #{round-width($i)});
+				}
+				.offset-lg-#{$i}{
+					margin-left: calc( #{round-width($i)} ) ;
+				}
+			}
+		}
+
+
+
+	// xl column
+
+		@include breakpoint(xl) {
+			
+			// auto-sized column
+			.col\-xl { 
+				@include autoSizedColumn;
+			}
+
+			@for $i from 1 through $grid-columns {
+				.col-xl-#{$i} {
+					flex-basis: calc( #{round-width($i)});
+					max-width: calc( #{round-width($i)});
+				}
+				.offset-xl-#{$i}{
+					margin-left: calc( #{round-width($i)} ) ;
+				}
+			}
+		}
+
+
+
+// CSS Grid Layout fallback
+
+
+	@mixin gridFallback($gap: null) {
+		display: flex;
+		flex-wrap: wrap;
+
+		@if( $gap == null ) {
+			$gap: var(--space-md);
+		}
+
+		margin: calc(#{$gap} * -1) 0 0 calc(#{$gap} * -1);
+
+		> * {
+			padding: #{$gap} 0 0 #{$gap};
+			background-clip: content-box;
+		}
+
+		@supports (grid-area: auto) {
+			margin: 0;
+
+			> * {
+				padding: 0;
+				max-width: none!important;
+			}
+		}
+	}
+
+	@mixin column($width) {
+		@if unit($width) != '%' {
+			$width: $width * 100%;
+		}
+		flex-basis: #{$width};
+		max-width: #{$width};
+	}
+
+
+
+
+
+

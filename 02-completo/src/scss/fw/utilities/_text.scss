@@ -1,0 +1,50 @@
+
+// Alignment
+
+.text-justify  { text-align: justify !important; }
+.text-wrap     { white-space: normal !important; }
+.text-nowrap   { white-space: nowrap !important; }
+
+
+// Responsive alignment
+@each $align in left, right, center {
+    .text-#{$align}{
+        text-align: $align;
+    }
+}
+
+
+// text align
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .text#{$infix}-left   { text-align: left !important; }
+    .text#{$infix}-right  { text-align: right !important; }
+    .text#{$infix}-center { text-align: center !important; }
+  }
+}
+
+
+
+// text colors
+
+@each $text-color in primary, secondary, light, dark, black, white, text-dark, text-light {
+    .text-#{$text-color}{
+        color: var(--color-#{$text-color}) !important;
+    }
+}
+
+
+// text transform
+                        
+@each $text-transform in capitalize, uppercase, lowercase {
+    .text-#{$text-transform}{
+        text-transform: $text-transform;
+    }
+}
+
+
+
+

@@ -1,0 +1,101 @@
+@import "./variables/core/buttons";
+
+
+// basic button style
+
+	[class*='btn-'] { 
+		position: relative;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		white-space: nowrap;
+		text-decoration: none;
+		margin: var(--btn-margin);
+		font-size: var(--btn-fontbase, 1rem);
+		padding-top: var(--btn-padding-y, 0.5rem);
+		padding-bottom: var(--btn-padding-y, 0.5rem);
+		padding-left: var(--btn-padding-x, 0.75rem);
+		padding-right: var(--btn-padding-x, 0.75rem);
+		border-radius: var(--btn-radius, 0.125rem);
+		color: var(--color-white);
+		background-image: none;
+		transition:0.35s;
+		cursor: pointer;
+		text-align: center;
+	}
+
+
+// btn-colors
+
+	@each $button-color in $color-statuses {
+		.btn-#{$button-color}{
+			border: 1px solid  var(--color-#{$button-color});
+			background-color: var(--color-#{$button-color});
+			&:hover {
+				border-color: lightness(var(--color-#{$button-color}), 0.75);
+				background-color: lightness(var(--color-#{$button-color}), 0.75) !important;
+			}
+		}
+	}
+
+	.btn-light {
+		color: var(--color-dark) !important;;
+	}
+
+
+// btn-outline 
+
+	@each $align in primary, secondary, light, dark, black, white {
+		.btn-outline-#{$align}{
+			border: 1px solid var(--color-#{$align}); 
+			background-color: transparent;
+			color: var(--color-#{$align});
+			&:hover {
+				background-color: var(--color-#{$align});
+				color: var(--color-white) !important;
+			}
+		}
+	}
+
+	.btn-outline-light {
+		color: lightness(var(--color-light), 0.75);
+		&:hover {
+			color: var(--color-dark) !important;
+		}
+	}
+
+	.btn-outline-white{
+		&:hover {
+			color: var(--color-dark) !important;
+		}
+	}
+
+// size
+
+	@each $btnSize in sm, md, lg {
+		.btn-#{$btnSize}{
+			font-size: var(--btn-font-size-#{$btnSize});
+		}
+	}	
+
+
+//  btn block
+	.btn-block {
+		display: block;
+		width: 100%;
+	}
+	  
+	// Specificity overrides
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"] {
+		&.btn-block {
+			width: 100%;
+		}
+	}
+
+
+
+
+
+

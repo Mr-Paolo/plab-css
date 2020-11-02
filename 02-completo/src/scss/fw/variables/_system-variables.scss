@@ -1,0 +1,47 @@
+
+/** scss variabiles only list **/
+
+
+// breakpoints
+	$grid-columns: 12 !default;
+
+	$breakpoints: (
+		xs: 				512px, 
+		sm: 				778px, 
+		md: 				1024px, 
+		lg: 				1280px, 
+		xl: 				1440px  
+
+	) !default;
+
+
+// container max-width
+
+	$grid-breakpoints: (
+
+		xs: 				512px, 
+		sm: 				778px, 
+		md: 				1024px, 
+		lg: 				1280px, 
+		xl: 				1440px  
+
+	) !default;
+
+
+
+// flex justify-content & align-center
+
+	$flex-align: (
+		start: 				flex-start,
+		center: 			center,
+		end: 				flex-end,
+		between: 			space-between,
+		around: 			space-around,
+		evenly: 			space-evenly
+		
+	);
+
+
+// statuses for the element colors generator (btn-rimary, seondary ecc)
+	$color-statuses: primary, secondary, danger, warning, light, dark, success
+

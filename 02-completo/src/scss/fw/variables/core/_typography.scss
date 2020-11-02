@@ -1,0 +1,49 @@
+
+
+:root {
+
+	// body font
+	--font-size-base: 				17px;
+	--line-height-base:				2.125;
+	--body-font-family:				'Noto Sans', sans-serif;
+	--body-weight:					400;
+	--p-margin:						0 0 1rem 0;
+	--body-text-transform: 			normal;
+	--body-spacing: 				auto;
+	--list-y-margin: 				0.25rem;
+
+	// headings
+	--heading-ratio: 				1.1;
+	--heading-font-base: 			1rem;
+	--heading-line-height:			1.25;
+	--heading-font-family:			'DM Mono', serif;
+	--heading-weight:				400;
+	--heading-margin: 				1.5rem 0 0.75rem;
+	--heading-text-transform: 		normal;
+	--heading-spacing: 				-0.0125em;
+
+	// sm text
+	--small-text: 					0.9rem;
+	--small-line-height: 			1.9;
+
+	//large text
+	--large-text: 					1.25em;
+	--large-line-height: 			1.45;
+
+	// typography
+	--text-color:			var(--color-text); //from color themes
+	--heading-color:		var(--color-heading);
+	--heading-6: 			var(--heading-font-base);
+	--heading-big: 			calc(var(--heading-1) * var(--heading-ratio));
+	--bold-font-weight: 	600;
+
+    // set headings size by ratio
+    @for $i from 1 to 6 {
+        $incr: $i + 1;
+        --heading-#{$i}: 	calc(var(--heading-#{$incr}) * var(--heading-ratio))
+    }
+
+    // change rem size
+}
+
+

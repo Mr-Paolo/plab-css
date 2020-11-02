@@ -1,0 +1,76 @@
+@import "./variables/core/_form";
+
+form,.form-group{
+	.form-control,
+	// input[type="text"],
+	// input[type="number"],
+	// input[type="date"],
+	// input[type="email"],
+	// input[type="password"],
+	// input[type="search"],
+	// textarea,
+	select {
+		@extend .no-outline;
+		font-size: var(--form-font-size) ;
+		line-height: var(--line-height-base);
+		border-radius: var(--form-border-radius);
+		padding: var(--form-padding-y) var(--form-padding-x);
+		color: var(--input-color);
+		width: 100%;
+		border: var(--input-border);
+		margin: 0.5rem 0 1rem;
+		transition: 0.35s;
+		background: var(--input-background);
+		-webkit-appearance: none;
+	    -moz-appearance: none;
+		&:focus,
+		&:active {
+			border-color: var(--color-primary);
+			box-shadow: 0 0 0px 4px alpha(var(--color-primary), 0.25);
+		}
+	}
+	
+	textarea {
+		height: calc( (var(--line-height-base) * 3 * 1rem) + (var(--form-padding-y) * 2));
+		max-width: 100%;
+		min-width: 100%;
+		transition: all 0.35s, width 0s;
+	}
+	
+	input[type="submit"]{
+		@extend .no-outline;
+	}
+	.form-label,
+	label{
+
+		font-size: 0.75rem;
+		font-weight: 600;
+		margin-right: 0.5rem;
+		vertical-align: middle;
+		color: #888;
+		display: block;
+		line-height: 1;
+	}
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  opacity: 1;
+  color: var(--color-placeholder);
+  line-height: var(--line-height-base);
+  font-weight: 500;
+}
+
+
+
+
+
+.no-outline {
+	outline: none!important;
+	&:focus,
+	&:active {
+		outline: none!important;
+	}
+}
+
+

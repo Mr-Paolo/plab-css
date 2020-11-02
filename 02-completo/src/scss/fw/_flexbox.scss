@@ -1,0 +1,13 @@
+
+
+// flex justify-content & align-items
+
+	@each $fi, $align in $flex-align {
+		.justify-content-#{$fi}{
+			justify-content: $align;
+		}
+		.align-items-#{$fi}{
+			align-items: $align;
+		}
+	}
+
